@@ -2,9 +2,22 @@
 <html>
 <head>
   <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/angular/angular.min.js"></script>
+  <script src="libs/angular-cookies/angular-cookies.js"></script>
 </head>
-<body>
+<bodyi ng-app="main" ng-controller="LoginCtl as login">
+<h3>{{login.usr || "No one login yet"}}</h3>
+<form ng-show="!login.usr">
+  <label>User Name: </label>
+  <input ng-model="loginUsr">
+  <hr>
+  <label>Password</label>
+  <input ng-model="loginPwd">
+  <button ng-click="login.login(loginUsr, loginPwd)">Login</button>
+</form>
+<button ng-show="login.usr" ng-click="login.logout()">Logout</button>
 <h3>Hello World</h3>
+<script src="app.js"></script>
 </body>
 </html>
 
